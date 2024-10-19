@@ -66,4 +66,10 @@ public class JobTest {
         assertEquals("\n" + "ID: 1"  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "CoreCompetency: Persistence"  + "\n", job_string_labels.toString());
     }
 
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job job_string_Empty = new Job("Product tester ", new Employer(" "), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    assertEquals("Data not available", job_string_Empty.getEmployer().getValue());
+    }
+
 }

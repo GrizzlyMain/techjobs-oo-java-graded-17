@@ -50,11 +50,20 @@ public class JobTest {
     }
 //Resources: https://www.geeksforgeeks.org/how-to-get-the-last-character-of-a-string-in-javascript/ and https://www.w3schools.com/java/ref_string_getchars.asp and
     //https://www.w3schools.com/java/ref_string_charat.asp
+
+    //single quotes bc expected is char
+    //lineseparator() returns '\r\n'
     @Test
     public void  testToStringStartsAndEndsWithNewLine() {
         Job job_string = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals('\n', job_string.toString().charAt(0));
         assertEquals(job_string.toString().length() - 1, job_string.toString().lastIndexOf('\n'));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job job_string_labels = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("\n" + "ID: 1"  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "CoreCompetency: Persistence"  + "\n", job_string_labels.toString());
     }
 
 }

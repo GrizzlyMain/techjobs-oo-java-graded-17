@@ -50,7 +50,8 @@ public class Job {
 
 
     //https://stackoverflow.com/questions/10734106/how-to-override-tostring-properly-in-java
-    //problem with tick marks
+    //problem with quotes
+    //could not get system line separator to work at beginning and end
     @Override
     public String toString(){
 

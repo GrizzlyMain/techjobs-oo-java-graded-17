@@ -48,6 +48,15 @@ public class Job {
         return Objects.hash(getId());
     }
 
+
+    //https://stackoverflow.com/questions/10734106/how-to-override-tostring-properly-in-java
+    //problem with tick marks
+    @Override
+    public String toString(){
+
+        return "\n" + "ID: " + this.id + System.lineSeparator() + "Name: " + this.name + System.lineSeparator() + "Employer: " + this.employer  + System.lineSeparator() + "Location: " + this.location + System.lineSeparator() + "Position Type: " + this.positionType + System.lineSeparator() + "CoreCompetency: " + this.coreCompetency + "\n";
+    }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 

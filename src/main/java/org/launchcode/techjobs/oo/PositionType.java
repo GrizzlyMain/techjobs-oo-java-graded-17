@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+
+
 public class PositionType {
 
     private int id;
@@ -46,6 +48,9 @@ public class PositionType {
     }
 
     public String getValue() {
+        if (value == null || value.trim().isEmpty() || value.isEmpty()) {
+            value = "Data not available";
+        }
         return value;
     }
 

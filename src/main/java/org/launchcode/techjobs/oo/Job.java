@@ -55,13 +55,17 @@ public class Job {
     @Override
     public String toString(){
 
-        return "\n" + "ID: " + this.id + System.lineSeparator() + "Name: " + this.name + System.lineSeparator() + "Employer: " + this.employer  + System.lineSeparator() + "Location: " + this.location + System.lineSeparator() + "Position Type: " + this.positionType + System.lineSeparator() + "CoreCompetency: " + this.coreCompetency + "\n";
+        return System.lineSeparator() + "ID: " + this.id + System.lineSeparator() + "Name: " + this.name + System.lineSeparator() + "Employer: " + this.employer  + System.lineSeparator() + "Location: " + this.location + System.lineSeparator() + "Position Type: " + this.positionType + System.lineSeparator() + "Core Competency: " + this.coreCompetency + System.lineSeparator();
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
+//Put trim() in case there are spaces
+    //https://www.baeldung.com/java-blank-empty-strings
     public String getName() {
+        if (name == null || name.trim().isEmpty() || name.isEmpty() ) {
+            name = "Data not available";
+        }
         return name;
     }
 
@@ -70,6 +74,7 @@ public class Job {
     }
 
     public Employer getEmployer() {
+
         return employer;
     }
 

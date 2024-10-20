@@ -53,22 +53,26 @@ public class JobTest {
 
     //single quotes bc expected is char
     //lineseparator() returns '\r\n'
+    //https://www.w3schools.com/java/ref_string_indexof.asp
+    // \r\n is a String but \r and \n separately are characters
     @Test
     public void  testToStringStartsAndEndsWithNewLine() {
         Job job_string = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals('\n', job_string.toString().charAt(0));
+        assertEquals(0, job_string.toString().indexOf('\r'));
         assertEquals(job_string.toString().length() - 1, job_string.toString().lastIndexOf('\n'));
     }
-
+//ID kept increseing
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job job_string_labels = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: 1"  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "CoreCompetency: Persistence"  + "\n", job_string_labels.toString());
+        assertEquals("\n" + "ID: " + job_string_labels.getId()  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "Core Competency: Persistence"  + "\n", job_string_labels.toString());
     }
-
+//had trouble with changing values in Location, Employer, Position, and Compettency in Job class getters
+    //was not a String,
+    //needed to go in separate classes and change getValue
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job_string_Empty = new Job("Product tester ", new Employer(" "), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job_string_Empty = new Job("Product tester", new Employer(" "), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     assertEquals("Data not available", job_string_Empty.getEmployer().getValue());
     }
 

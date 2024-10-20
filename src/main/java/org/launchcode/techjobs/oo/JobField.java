@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+//had to change id, next id, and value from public to private for all classes to access them
 public abstract class JobField {
     public int id;
     public static int nextId = 1;

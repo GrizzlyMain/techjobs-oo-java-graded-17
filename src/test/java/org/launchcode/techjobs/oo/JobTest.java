@@ -65,7 +65,7 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job job_string_labels = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\n" + "ID: " + job_string_labels.getId()  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "Core Competency: Persistence"  + "\n", job_string_labels.toString());
+        assertEquals(System.lineSeparator() +  "ID: " + job_string_labels.getId()  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "Core Competency: Persistence"  + System.lineSeparator(), job_string_labels.toString());
     }
 //had trouble with changing values in Location, Employer, Position, and Compettency in Job class getters
     //was not a String,

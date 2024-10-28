@@ -55,6 +55,7 @@ public class JobTest {
     //lineseparator() returns '\r\n'
     //https://www.w3schools.com/java/ref_string_indexof.asp
     // \r\n is a String but \r and \n separately are characters
+    //singe quotes work, but double do not
     @Test
     public void  testToStringStartsAndEndsWithNewLine() {
         Job job_string = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -67,7 +68,7 @@ public class JobTest {
         Job job_string_labels = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals(System.lineSeparator() +  "ID: " + job_string_labels.getId()  + System.lineSeparator() + "Name: Product tester"  + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert"  + System.lineSeparator() + "Position Type: Quality control"  + System.lineSeparator() + "Core Competency: Persistence"  + System.lineSeparator(), job_string_labels.toString());
     }
-//had trouble with changing values in Location, Employer, Position, and Compettency in Job class getters
+//had trouble with changing values in Location, Employer, Position, and Competency in Job class getters
     //was not a String,
     //needed to go in separate classes and change getValue
     @Test
